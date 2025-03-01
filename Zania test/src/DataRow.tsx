@@ -1,11 +1,11 @@
 import React from "react";
 import {DataItem} from "./sampleData";
-export const DataRow: React.FC<{ 
+const DataRow: React.FC<{ 
     item: DataItem; 
     isSelected: boolean; 
     onToggle: () => void 
   }> = ({ item, isSelected, onToggle }) => (
-    <tr>
+    <tr style={{ borderBottom: "1px solid black"}}>
       <td>
         <input type="checkbox" checked={isSelected} onChange={onToggle} />
       </td>
@@ -17,3 +17,5 @@ export const DataRow: React.FC<{
       </td>
     </tr>
   );
+
+  export default DataRow

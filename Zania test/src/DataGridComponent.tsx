@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import {sampleData} from "./sampleData";
-import {SelectAllCheckbox} from "./SelectAllCheckbox";
-import {DataRow} from "./DataRow";
+import SelectAllCheckbox from "./SelectAllCheckbox";
+import DataRow from "./DataRow";
 const DataGrid: React.FC = () => {
     const [selectedRows, setSelectedRows] = useState<string[]>([]);
   
@@ -30,15 +30,18 @@ const DataGrid: React.FC = () => {
     };
   
     return (
-      <div>
-        <h2>Datagrid</h2>
+      <>
+      <div style={{float: "left",    marginLeft: "31px"}}>
         <SelectAllCheckbox 
           selectedCount={selectedRows.length} 
           totalCount={sampleData.length} 
           onToggle={handleSelectAllToggle} 
         />
-        <table border={1} cellPadding={5} style={{ borderCollapse: "collapse", width: "100%" }}>
-          <thead>
+        <button onClick={handleDownload} disabled={selectedRows.length < sampleData.length}>
+          Download Selected
+        </button></div>
+        <table  cellPadding={5} style={{ borderCollapse: "collapse", width: "100%" }}>
+          <thead style={{ borderBottom: "1px solid black"}}>
             <tr>
               <th>Checkbox</th>
               <th>Device</th>
@@ -57,10 +60,8 @@ const DataGrid: React.FC = () => {
             ))}
           </tbody>
         </table>
-        <button onClick={handleDownload} disabled={selectedRows.length < sampleData.length}>
-          Download Selected
-        </button>
-      </div>
+        
+      </>
     );
   };
   export default DataGrid;

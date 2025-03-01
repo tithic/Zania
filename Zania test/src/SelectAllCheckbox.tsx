@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-export const SelectAllCheckbox: React.FC<{ 
+ const SelectAllCheckbox: React.FC<{ 
   selectedCount: number, 
   totalCount: number, 
   onToggle: () => void 
@@ -14,7 +14,7 @@ export const SelectAllCheckbox: React.FC<{
   }, [selectedCount, totalCount]);
 
   return (
-    <label>
+   <>
       <input 
         type="checkbox" 
         ref={checkboxRef}
@@ -22,9 +22,10 @@ export const SelectAllCheckbox: React.FC<{
         onChange={onToggle} 
       />
       {selectedCount ? `${selectedCount} Selected` : "None Selected"}
-    </label>
+    </>
   );
 };
 
+export default SelectAllCheckbox;
 
 
