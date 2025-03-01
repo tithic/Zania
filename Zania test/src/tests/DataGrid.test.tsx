@@ -1,15 +1,9 @@
-import React from 'react';
 import '@testing-library/jest-dom';
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import DataGrid from '../DataGridComponent';
 import {sampleData} from '../sampleData';
 
 describe('DataGrid component', () => {
-  // const sampleData: DataItem[] = [
-  //   { name: 'item1', device: 'device1', path: 'path1', status: 'available' },
-  //   { name: 'item2', device: 'device2', path: 'path2', status: 'scheduled' },
-  //   { name: 'item3', device: 'device3', path: 'path3', status: 'available' },
-  // ];
 
   it('renders data grid with sample data', () => {
     const { getByText } = render(<DataGrid/>);
